@@ -5,11 +5,11 @@ from PyQt5 import QtWidgets
 import sys
 
 # Main window ui import
-from src.mainwindow import MainWindow
+from src.muestreo import Muestreo
 
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
-    window = MainWindow()
+    window = Muestreo()
     window.show()
     sys.exit(app.exec())
