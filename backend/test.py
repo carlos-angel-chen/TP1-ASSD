@@ -1,1 +1,3 @@
-print("esto es un testeo")
+import numpy as np
+
+#buscar un opamp bueno de 4 integrados
