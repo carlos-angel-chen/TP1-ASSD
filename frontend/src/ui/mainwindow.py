@@ -11,10 +11,10 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
+class Ui_Muestreo(object):
     def setupUi(self, Muestreo):
         Muestreo.setObjectName("Muestreo")
-        Muestreo.resize(1076, 700)
+        Muestreo.resize(976, 583)
         Muestreo.setMaximumSize(QtCore.QSize(16777215, 16777215))
         self.centralwidget = QtWidgets.QWidget(Muestreo)
         self.centralwidget.setObjectName("centralwidget")
@@ -59,6 +59,7 @@ class Ui_MainWindow(object):
         self.frame_typefilter.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_typefilter.setObjectName("frame_typefilter")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.frame_typefilter)
+        self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.Title_tipofiltro_2 = QtWidgets.QLabel(self.frame_typefilter)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
@@ -80,7 +81,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.textBrowser_2.sizePolicy().hasHeightForWidth())
         self.textBrowser_2.setSizePolicy(sizePolicy)
-        self.textBrowser_2.setMaximumSize(QtCore.QSize(16777215, 100))
+        self.textBrowser_2.setMaximumSize(QtCore.QSize(16777215, 90))
         self.textBrowser_2.setObjectName("textBrowser_2")
         self.verticalLayout_2.addWidget(self.textBrowser_2)
         self.verticalLayout_4.addWidget(self.frame_typefilter)
@@ -190,6 +191,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.doubleSpinBox_frec.sizePolicy().hasHeightForWidth())
         self.doubleSpinBox_frec.setSizePolicy(sizePolicy)
         self.doubleSpinBox_frec.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.doubleSpinBox_frec.setDecimals(2)
         self.doubleSpinBox_frec.setMaximum(1000.0)
         self.doubleSpinBox_frec.setObjectName("doubleSpinBox_frec")
         self.Layout_f.addWidget(self.doubleSpinBox_frec)
@@ -288,6 +290,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.doubleSpinBox_T_muestreo.sizePolicy().hasHeightForWidth())
         self.doubleSpinBox_T_muestreo.setSizePolicy(sizePolicy)
         self.doubleSpinBox_T_muestreo.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.doubleSpinBox_T_muestreo.setDecimals(3)
         self.doubleSpinBox_T_muestreo.setMaximum(1000.0)
         self.doubleSpinBox_T_muestreo.setObjectName("doubleSpinBox_T_muestreo")
         self.Layout_f_4.addWidget(self.doubleSpinBox_T_muestreo)
@@ -340,28 +343,6 @@ class Ui_MainWindow(object):
         self.label_4.setObjectName("label_4")
         self.Layout_f_5.addWidget(self.label_4)
         self.verticalLayout_8.addLayout(self.Layout_f_5)
-        self.Layout_add_2 = QtWidgets.QHBoxLayout()
-        self.Layout_add_2.setObjectName("Layout_add_2")
-        spacerItem = QtWidgets.QSpacerItem(0, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.Layout_add_2.addItem(spacerItem)
-        self.pushButton_actualizar = QtWidgets.QPushButton(self.frame_alternativas_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pushButton_actualizar.sizePolicy().hasHeightForWidth())
-        self.pushButton_actualizar.setSizePolicy(sizePolicy)
-        self.pushButton_actualizar.setMaximumSize(QtCore.QSize(16777215, 30))
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.pushButton_actualizar.setFont(font)
-        self.pushButton_actualizar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_actualizar.setFocusPolicy(QtCore.Qt.StrongFocus)
-        self.pushButton_actualizar.setStyleSheet("background-color: rgb(208, 208, 208);")
-        self.pushButton_actualizar.setObjectName("pushButton_actualizar")
-        self.Layout_add_2.addWidget(self.pushButton_actualizar)
-        spacerItem1 = QtWidgets.QSpacerItem(0, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.Layout_add_2.addItem(spacerItem1)
-        self.verticalLayout_8.addLayout(self.Layout_add_2)
         self.verticalLayout_4.addWidget(self.frame_alternativas_2)
         self.frame_param = QtWidgets.QFrame(self.frame_botones)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
@@ -531,6 +512,25 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.label_31, 2, 1, 1, 1)
         self.verticalLayout_6.addLayout(self.gridLayout)
         self.verticalLayout_4.addWidget(self.frame_param)
+        self.Layout_add_2 = QtWidgets.QHBoxLayout()
+        self.Layout_add_2.setObjectName("Layout_add_2")
+        self.pushButton_actualizar = QtWidgets.QPushButton(self.frame_botones)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton_actualizar.sizePolicy().hasHeightForWidth())
+        self.pushButton_actualizar.setSizePolicy(sizePolicy)
+        self.pushButton_actualizar.setMaximumSize(QtCore.QSize(16777215, 30))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.pushButton_actualizar.setFont(font)
+        self.pushButton_actualizar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_actualizar.setFocusPolicy(QtCore.Qt.StrongFocus)
+        self.pushButton_actualizar.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.pushButton_actualizar.setStyleSheet("background-color: rgb(172, 172, 172);")
+        self.pushButton_actualizar.setObjectName("pushButton_actualizar")
+        self.Layout_add_2.addWidget(self.pushButton_actualizar)
+        self.verticalLayout_4.addLayout(self.Layout_add_2)
         self.horizontalLayout.addWidget(self.frame_botones)
         self.frame_graficos = QtWidgets.QFrame(self.frame_principal)
         self.frame_graficos.setMinimumSize(QtCore.QSize(700, 100))
@@ -587,16 +587,16 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, Muestreo):
         _translate = QtCore.QCoreApplication.translate
-        Muestreo.setWindowTitle(_translate("Muestreo", "Pasa altos"))
+        Muestreo.setWindowTitle(_translate("Muestreo", "Muestreo"))
         self.Title_tipofiltro_2.setText(_translate("Muestreo", "TP1 GRUPO 4"))
         self.textBrowser_2.setHtml(_translate("Muestreo", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Bosch, Dimas</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Chen, Carlos</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Dalla Lasta, Pedro</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Terra, Ignacio</span></p></body></html>"))
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Bosch, Dimas</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Chen, Carlos</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Dalla Lasta, Pedro</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Terra, Ignacio</span></p></body></html>"))
         self.Title_tipofiltro_3.setText(_translate("Muestreo", "Entrada"))
         self.label_aprox.setText(_translate("Muestreo", "Señal"))
         self.comboBox_signal.setItemText(0, _translate("Muestreo", "Coseno"))
@@ -616,7 +616,6 @@ class Ui_MainWindow(object):
         self.comboBox_T_muestreo.setItemText(2, _translate("Muestreo", "s"))
         self.label_fp_5.setText(_translate("Muestreo", "Duty Cycle"))
         self.label_4.setText(_translate("Muestreo", "%"))
-        self.pushButton_actualizar.setText(_translate("Muestreo", "Actualizar"))
         self.label_11.setText(_translate("Muestreo", "Plot"))
         self.label_10.setText(_translate("Muestreo", "ON"))
         self.label_5.setText(_translate("Muestreo", "Entrada"))
@@ -626,6 +625,7 @@ class Ui_MainWindow(object):
         self.label_8.setText(_translate("Muestreo", "Llave"))
         self.label_9.setText(_translate("Muestreo", "FR"))
         self.label_31.setText(_translate("Muestreo", "✔"))
+        self.pushButton_actualizar.setText(_translate("Muestreo", "Actualizar"))
 
 
 if __name__ == "__main__":
