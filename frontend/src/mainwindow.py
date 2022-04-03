@@ -59,4 +59,29 @@ class MainWindow(QMainWindow, Ui_Muestreo):
         Av = self.doubleSpinBox_Av.value()
         frec = self.doubleSpinBox_frec.value()
         theta = self.doubleSpinBox_theta.value()
+        frec_unit = self.comboBox_frec.currentText()
+        periodo = self.doubleSpinBox_T_muestreo.value()
+        periodo_unit = self.comboBox_T_muestreo.currentText()
+        DC = self.doubleSpinBox_DC.value()
+
+        if (frec_unit == "KHz"):
+            frec *= 1000
+        if (periodo_unit == "µs"):
+            periodo *= 10**(-6)
+        elif (periodo_unit == "ms"):
+            periodo *= 10 ** (-3)
+
+        entrada_Plot = self.checkBox_Plot_input.isChecked()
+        FAA_Plot = self.checkBox_Plot_FAA.isChecked()
+        SyH_Plot = self.checkBox_Plot_SyH.isChecked()
+        Llave_Plot = self.checkBox_Plot_Llave.isChecked()
+        FR_Plot = self.checkBox_Plot_FR.isChecked()
+
+
+        FAA_ON = self.checkBox_ON_FAA.isChecked()
+        SyH_ON = self.checkBox_ON_SyH.isChecked()
+        Llave_ON = self.checkBox_ON_Llave.isChecked()
+        FR_ON = self.checkBox_ON_FR.isChecked()
+
+
         pass
