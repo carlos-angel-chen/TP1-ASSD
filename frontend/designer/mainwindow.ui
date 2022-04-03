@@ -744,7 +744,7 @@ p, li { white-space: pre-wrap; }
                 </widget>
                </item>
                <item row="4" column="2">
-                <widget class="QCheckBox" name="checkBox_Plot_FAA_2">
+                <widget class="QCheckBox" name="checkBox_Plot_SyH">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
                    <horstretch>0</horstretch>
