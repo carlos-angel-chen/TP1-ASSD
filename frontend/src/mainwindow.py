@@ -55,5 +55,8 @@ class MainWindow(QMainWindow, Ui_Muestreo):
 
 
     def Update_clicked(self):
-        #Grafica las cosas
+        signal = self.comboBox_signal.currentText()
+        Av = self.doubleSpinBox_Av.value()
+        frec = self.doubleSpinBox_frec.value()
+        theta = self.doubleSpinBox_theta.value()
         pass
