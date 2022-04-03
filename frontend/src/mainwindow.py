@@ -25,10 +25,10 @@ class MainWindow(QMainWindow, Ui_Muestreo):
                                          "}"
                                          )
 
-        self.figure_tiempo = Figure()
-        self.canvas_tiempo = FigureCanvas(self.figure_tiempo)
-        self.toolbar_tiempo = NavigationToolbar(self.canvas_tiempo, self)
-        self.Layout_tiempo.addWidget(self.toolbar_tiempo)
+        self.figure_tiempo = Figure()  #Creo widget Figura
+        self.canvas_tiempo = FigureCanvas(self.figure_tiempo) #le pongo un canvas
+        self.toolbar_tiempo = NavigationToolbar(self.canvas_tiempo, self) #creo widget toolbar
+        self.Layout_tiempo.addWidget(self.toolbar_tiempo) #meto los widgets en el layout
         self.Layout_tiempo.addWidget(self.canvas_tiempo)
 
         self.figure_frec = Figure()
@@ -38,20 +38,20 @@ class MainWindow(QMainWindow, Ui_Muestreo):
         self.Layout_frec.addWidget(self.canvas_frec)
 
         self.ax_tiempo = self.figure_tiempo.subplots()
-        self.figure_tiempo.subplots_adjust(bottom=0.18)
+        self.figure_tiempo.subplots_adjust(bottom=0.2)
         self.ax_tiempo.grid(which="both")
         self.ax_tiempo.set_xscale("log")
-        self.ax_tiempo.set_title("Modulo")
-        self.ax_tiempo.set_ylabel("dB")
-        self.ax_tiempo.set_xlabel("Hz")
+        self.ax_tiempo.set_title("Osciloscopio", fontsize=10)
+        self.ax_tiempo.set_ylabel("Amplitud [V]", fontsize=10)
+        self.ax_tiempo.set_xlabel("Tiempo [s]", fontsize=10)
 
         self.ax_frec = self.figure_frec.subplots()
-        self.figure_frec.subplots_adjust(bottom=0.18)
+        self.figure_frec.subplots_adjust(bottom=0.2)
         self.ax_frec.grid(which="both")
         self.ax_frec.set_xscale("log")
-        self.ax_frec.set_title("Fase")
-        self.ax_frec.set_ylabel("Grados(º)")
-        self.ax_frec.set_xlabel("Hz")
+        self.ax_frec.set_title("Analizador de espectros", fontsize=10)
+        self.ax_frec.set_ylabel("Amplitud [V]", fontsize=10)
+        self.ax_frec.set_xlabel("Frecuencia [Hz]", fontsize=10)
 
 
     def Update_clicked(self):
