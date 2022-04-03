@@ -7,6 +7,7 @@ from src.ui.mainwindow import Ui_Muestreo
 # Utilities
 from matplotlib.backends.backend_qt5agg import (FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
 from matplotlib.figure import Figure
+import backend.recive as RCV
 
 class MainWindow(QMainWindow, Ui_Muestreo):
 
@@ -83,5 +84,29 @@ class MainWindow(QMainWindow, Ui_Muestreo):
         Llave_ON = self.checkBox_ON_Llave.isChecked()
         FR_ON = self.checkBox_ON_FR.isChecked()
 
-
+        #MT,MF = RCV.Recieve(signal, Av, frec, theta, periodo, DC, FAA_ON, SyH_ON, Llave_ON, FR_ON)
+        #self.Plot(MT,MF, entrada_Plot, FAA_Plot, SyH_Plot, Llave_Plot, FR_Plot)
         pass
+
+    # def Plot(self,MT ,MF, entrada_Plot, FAA_Plot, SyH_Plot, Llave_Plot, FR_Plot):
+    #     #limpar graficos
+    #
+    #     #verifico que graficar
+    #     if (entrada_Plot):
+    #         #grafico
+    #         self.ax_tiempo.plot(MT[0],MT[1])
+    #         self.ax_frec.plot(MF[0], MF[1])
+    #     if (FAA_Plot):
+    #         self.ax_tiempo.plot(MT[0], MT[2])
+    #         self.ax_frec.plot(MF[0], MF[2])
+    #     if (SyH_Plot):
+    #         self.ax_tiempo.plot(MT[0], MT[3])
+    #         self.ax_frec.plot(MF[0], MF[3])
+    #     if (Llave_Plot):
+    #         self.ax_tiempo.plot(MT[0], MT[4])
+    #         self.ax_frec.plot(MF[0], MF[4])
+    #     if (FR_Plot):
+    #         self.ax_tiempo.plot(MT[0], MT[5])
+    #         self.ax_frec.plot(MF[0], MF[5])
+    #
+    #     pass
