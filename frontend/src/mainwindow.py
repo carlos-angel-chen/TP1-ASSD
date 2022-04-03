@@ -84,7 +84,7 @@ class MainWindow(QMainWindow, Ui_Muestreo):
         Llave_ON = self.checkBox_ON_Llave.isChecked()
         FR_ON = self.checkBox_ON_FR.isChecked()
 
-        #MT,MF = RCV.Recieve(signal, Av, frec, theta, periodo, DC, FAA_ON, SyH_ON, Llave_ON, FR_ON)
+        RCV.Recieve(signal, Av, frec, theta, periodo, DC, FAA_ON, SyH_ON, Llave_ON, FR_ON)
         #self.Plot(MT,MF, entrada_Plot, FAA_Plot, SyH_Plot, Llave_Plot, FR_Plot)
         pass
 
