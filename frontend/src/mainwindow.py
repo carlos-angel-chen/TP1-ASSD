@@ -90,24 +90,43 @@ class MainWindow(QMainWindow, Ui_Muestreo):
     def Plot(self, MT, MF_x, MF_y, entrada_Plot, FAA_Plot, SyH_Plot, Llave_Plot, FR_Plot):
         #limpar graficos
 
+        self.ax_tiempo.cla()
+
+        self.figure_tiempo.subplots_adjust(bottom=0.2)
+        self.ax_tiempo.grid(which="both")
+        self.ax_tiempo.set_title("Osciloscopio", fontsize=10)
+        self.ax_tiempo.set_ylabel("Amplitud [V]", fontsize=10)
+        self.ax_tiempo.set_xlabel("Tiempo [s]", fontsize=10)
+
+        self.ax_frec.cla()
+
+        self.figure_frec.subplots_adjust(bottom=0.2)
+        self.ax_frec.grid(which="both")
+        self.ax_frec.set_xscale("log")
+        self.ax_frec.set_title("Analizador de espectros", fontsize=10)
+        self.ax_frec.set_ylabel("Amplitud [V]", fontsize=10)
+        self.ax_frec.set_xlabel("Frecuencia [Hz]", fontsize=10)
+
         #OSCILOSCOPIO
         #verifico que graficar
         if (entrada_Plot):
             #grafico
-            self.ax_tiempo.plot(MT[0],MT[1])
-            self.ax_frec.plot(MF_x[0], MF_y[0])
+            self.ax_tiempo.plot(MT[0],MT[1],label="Input")
+            self.ax_frec.plot(MF_x[0], MF_y[0], label="Input")
         if (FAA_Plot):
-            self.ax_tiempo.plot(MT[0], MT[2])
-            self.ax_frec.plot(MF_x[1], MF_y[1])
+            self.ax_tiempo.plot(MT[0], MT[2], label="Output FAA")
+            self.ax_frec.plot(MF_x[1], MF_y[1], label="Output FAA")
         if (SyH_Plot):
-            self.ax_tiempo.plot(MT[0], MT[3])
-            self.ax_frec.plot(MF_x[2], MF_y[2])
+            self.ax_tiempo.plot(MT[0], MT[3], label="Output SyH")
+            self.ax_frec.plot(MF_x[2], MF_y[2], label="Output SyH")
         if (Llave_Plot):
-            self.ax_tiempo.plot(MT[0], MT[4])
-            self.ax_frec.plot(MF_x[3], MF_y[3])
+            self.ax_tiempo.plot(MT[0], MT[4], label="Output Llave")
+            self.ax_frec.plot(MF_x[3], MF_y[3], label="Output Llave")
         if (FR_Plot):
-            self.ax_tiempo.plot(MT[0], MT[5])
-            self.ax_frec.plot(MF_x[4], MF_y[4])
+            self.ax_tiempo.plot(MT[0], MT[5], label="Output FR")
+            self.ax_frec.plot(MF_x[4], MF_y[4], label="Output FR")
 
+        self.ax_frec.legend(prop={"size":7})
+        self.ax_tiempo.legend(prop={"size":7})
         self.canvas_tiempo.draw()
         self.canvas_frec.draw()
