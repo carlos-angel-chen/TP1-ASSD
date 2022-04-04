@@ -16,7 +16,7 @@ def Recieve(signal_type, amplitud, frec, theta, periodo, DC, FAA_ON, SyH_ON, LLA
         signal=np.append(sin_aux, sin_aux)
         signal=np.append(signal, sin_aux)
     else:
-        signal=ss.sawtooth(2*np.pi*x_tiempo * frec * x_tiempo)
+        signal=ss.sawtooth(2*np.pi* frec * x_tiempo)
 
     if FAA_ON:
         FAA_out=FAA(signal)
