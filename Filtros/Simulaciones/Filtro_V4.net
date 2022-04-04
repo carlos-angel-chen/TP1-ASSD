@@ -5,7 +5,7 @@ C2_S1 N006 0 {C2_S1}
 R2 N006 N001 {R2_S1}
 V1 Vcc+ 0 5
 V2 0 Vcc- 5
-V3 Vin 0 PWL file=C:\Users\carlo\OneDrive\Escritorio\ASSD\TPs\TP1\diente_sierra.txt
+V3 Vin 0 SINE(0 1 40000) AC 1
 XU2 N005 Stage_2 Vcc+ Vcc- Stage_2 TL082
 R3 N002 Stage_1 {R1_S2}
 C2_S2 N005 0 {C2_S2}
@@ -29,7 +29,7 @@ C1_S3 Vout N003 {C1_S3}
 .param R2_S3 12k
 .param C1_S3 0.001u
 .param C2_S3 33p
-.tran 1m
+.ac dec 1000 100 1000k
 .lib TL082.cir
 .backanno
 .end
