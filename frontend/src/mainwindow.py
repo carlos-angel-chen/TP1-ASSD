@@ -84,29 +84,30 @@ class MainWindow(QMainWindow, Ui_Muestreo):
         Llave_ON = self.checkBox_ON_Llave.isChecked()
         FR_ON = self.checkBox_ON_FR.isChecked()
 
-        RCV.Recieve(signal, Av, frec, theta, periodo, DC, FAA_ON, SyH_ON, Llave_ON, FR_ON)
-        #self.Plot(MT,MF, entrada_Plot, FAA_Plot, SyH_Plot, Llave_Plot, FR_Plot)
+       MT, MF_x, MF_y = RCV.Recieve(signal, Av, frec, theta, periodo, DC, FAA_ON, SyH_ON, Llave_ON, FR_ON)
+        #self.Plot(MT,MF_x,MF_y, entrada_Plot, FAA_Plot, SyH_Plot, Llave_Plot, FR_Plot)
         pass
 
-    # def Plot(self,MT ,MF, entrada_Plot, FAA_Plot, SyH_Plot, Llave_Plot, FR_Plot):
+    # def Plot(self, MT, MF_x, MF_y, entrada_Plot, FAA_Plot, SyH_Plot, Llave_Plot, FR_Plot):
     #     #limpar graficos
-    #
+
+    #     #OSCILOSCOPIO
     #     #verifico que graficar
     #     if (entrada_Plot):
     #         #grafico
     #         self.ax_tiempo.plot(MT[0],MT[1])
-    #         self.ax_frec.plot(MF[0], MF[1])
+    #         self.ax_frec.plot(MF_x[0], MF_y[0])
     #     if (FAA_Plot):
     #         self.ax_tiempo.plot(MT[0], MT[2])
-    #         self.ax_frec.plot(MF[0], MF[2])
+    #         self.ax_frec.plot(MF_x[1], MF_y[1])
     #     if (SyH_Plot):
     #         self.ax_tiempo.plot(MT[0], MT[3])
-    #         self.ax_frec.plot(MF[0], MF[3])
+    #         self.ax_frec.plot(MF_x[2], MF_y[2])
     #     if (Llave_Plot):
     #         self.ax_tiempo.plot(MT[0], MT[4])
-    #         self.ax_frec.plot(MF[0], MF[4])
+    #         self.ax_frec.plot(MF_x[3], MF_y[3])
     #     if (FR_Plot):
     #         self.ax_tiempo.plot(MT[0], MT[5])
-    #         self.ax_frec.plot(MF[0], MF[5])
+    #         self.ax_frec.plot(MF_x[4], MF_y[4])
     #
     #     pass
