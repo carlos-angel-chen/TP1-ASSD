@@ -12,16 +12,18 @@ def Recieve(signal_type, amplitud, frec, theta, periodo, DC, FAA_ON, SyH_ON, LLA
     x_tiempo=np.linspace(0, n_periodos/frec, largo_tiempo)
 
     if signal_type == "Coseno":
-        signal = amplitud * np.cos(2*np.pi * frec * x_tiempo)
+        signal = amplitud * np.cos(2*np.pi * frec * x_tiempo + (theta*(np.pi/180)))
     elif signal_type == "Seno (T*3/2)":
         x_aux=np.linspace(0, (3/2)*(1/frec), largo_tiempo//int(n_periodos))
         sin_aux= amplitud * np.sin(2*np.pi * frec * x_aux)
+        div=int(theta * (len(x_aux)/360))
         signal=np.append(sin_aux, sin_aux)
-        if n_periodos>2:
+        if n_periodos > 2:
             for n in range(int(n_periodos)-2):
                 signal=np.append(signal, sin_aux)
+        signal=np.append(signal[div:], signal[:div])
     else:
-        signal=ss.sawtooth(2*np.pi* frec * x_tiempo)
+        signal=ss.sawtooth(2*np.pi* frec * x_tiempo + (theta*(np.pi/180)))
 
     if FAA_ON:
         FAA_out=FAA(signal)
