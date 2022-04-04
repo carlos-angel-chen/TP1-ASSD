@@ -41,7 +41,6 @@ class MainWindow(QMainWindow, Ui_Muestreo):
         self.ax_tiempo = self.figure_tiempo.subplots()
         self.figure_tiempo.subplots_adjust(bottom=0.2)
         self.ax_tiempo.grid(which="both")
-        self.ax_tiempo.set_xscale("log")
         self.ax_tiempo.set_title("Osciloscopio", fontsize=10)
         self.ax_tiempo.set_ylabel("Amplitud [V]", fontsize=10)
         self.ax_tiempo.set_xlabel("Tiempo [s]", fontsize=10)
@@ -84,30 +83,31 @@ class MainWindow(QMainWindow, Ui_Muestreo):
         Llave_ON = self.checkBox_ON_Llave.isChecked()
         FR_ON = self.checkBox_ON_FR.isChecked()
 
-       MT, MF_x, MF_y = RCV.Recieve(signal, Av, frec, theta, periodo, DC, FAA_ON, SyH_ON, Llave_ON, FR_ON)
-        #self.Plot(MT,MF_x,MF_y, entrada_Plot, FAA_Plot, SyH_Plot, Llave_Plot, FR_Plot)
+        MT, MF_x, MF_y = RCV.Recieve(signal, Av, frec, theta, periodo, DC, FAA_ON, SyH_ON, Llave_ON, FR_ON)
+        self.Plot(MT,MF_x,MF_y, entrada_Plot, FAA_Plot, SyH_Plot, Llave_Plot, FR_Plot)
         pass
 
-    # def Plot(self, MT, MF_x, MF_y, entrada_Plot, FAA_Plot, SyH_Plot, Llave_Plot, FR_Plot):
-    #     #limpar graficos
+    def Plot(self, MT, MF_x, MF_y, entrada_Plot, FAA_Plot, SyH_Plot, Llave_Plot, FR_Plot):
+        #limpar graficos
 
-    #     #OSCILOSCOPIO
-    #     #verifico que graficar
-    #     if (entrada_Plot):
-    #         #grafico
-    #         self.ax_tiempo.plot(MT[0],MT[1])
-    #         self.ax_frec.plot(MF_x[0], MF_y[0])
-    #     if (FAA_Plot):
-    #         self.ax_tiempo.plot(MT[0], MT[2])
-    #         self.ax_frec.plot(MF_x[1], MF_y[1])
-    #     if (SyH_Plot):
-    #         self.ax_tiempo.plot(MT[0], MT[3])
-    #         self.ax_frec.plot(MF_x[2], MF_y[2])
-    #     if (Llave_Plot):
-    #         self.ax_tiempo.plot(MT[0], MT[4])
-    #         self.ax_frec.plot(MF_x[3], MF_y[3])
-    #     if (FR_Plot):
-    #         self.ax_tiempo.plot(MT[0], MT[5])
-    #         self.ax_frec.plot(MF_x[4], MF_y[4])
-    #
-    #     pass
+        #OSCILOSCOPIO
+        #verifico que graficar
+        if (entrada_Plot):
+            #grafico
+            self.ax_tiempo.plot(MT[0],MT[1])
+            self.ax_frec.plot(MF_x[0], MF_y[0])
+        if (FAA_Plot):
+            self.ax_tiempo.plot(MT[0], MT[2])
+            self.ax_frec.plot(MF_x[1], MF_y[1])
+        if (SyH_Plot):
+            self.ax_tiempo.plot(MT[0], MT[3])
+            self.ax_frec.plot(MF_x[2], MF_y[2])
+        if (Llave_Plot):
+            self.ax_tiempo.plot(MT[0], MT[4])
+            self.ax_frec.plot(MF_x[3], MF_y[3])
+        if (FR_Plot):
+            self.ax_tiempo.plot(MT[0], MT[5])
+            self.ax_frec.plot(MF_x[4], MF_y[4])
+
+        self.canvas_tiempo.draw()
+        self.canvas_frec.draw()
