@@ -17,9 +17,9 @@ def Recieve(signal_type, amplitud, frec, theta, periodo, DC, FAA_ON, SyH_ON, LLA
         x_aux=np.linspace(0, (3/2)*(1/frec), largo_tiempo//int(n_periodos))
         sin_aux= amplitud * np.sin(2*np.pi * frec * x_aux)
         div=int(theta * (len(x_aux)/360))
-        signal=np.append(sin_aux, sin_aux)
-        if n_periodos > 2:
-            for n in range(int(n_periodos)-2):
+        signal=np.copy(sin_aux)
+        if n_periodos > 1:
+            for n in range(int(n_periodos)-1):
                 signal=np.append(signal, sin_aux)
         signal=np.append(signal[div:], signal[:div])
     else:
