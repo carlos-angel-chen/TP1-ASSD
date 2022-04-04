@@ -126,8 +126,11 @@ class MainWindow(QMainWindow, Ui_Muestreo):
         if (FR_Plot):
             self.ax_tiempo.plot(MT[0], MT[5], label="Output FR")
             self.ax_frec.plot(MF_x[4], MF_y[4], label="Output FR")
+        if((entrada_Plot or FAA_Plot or SyH_Plot or Llave_Plot or FR_Plot)):
+            self.ax_frec.legend(prop={"size": 7})
+            self.ax_tiempo.legend(prop={"size": 7})
 
-        self.ax_frec.legend(prop={"size":7})
-        self.ax_tiempo.legend(prop={"size":7})
+
+
         self.canvas_tiempo.draw()
         self.canvas_frec.draw()
