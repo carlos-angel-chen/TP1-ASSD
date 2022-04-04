@@ -3,18 +3,20 @@ import scipy.signal as ss
 import scipy.fft as fft
 
 
-def Recieve(signal_type, amplitud, frec, theta, periodo, DC, FAA_ON, SyH_ON, LLA_ON, FR_ON):
-    largo_tiempo = 1200
+def Recieve(signal_type, amplitud, frec, theta, periodo, DC, FAA_ON, SyH_ON, LLA_ON, FR_ON, n_periodos):
+    largo_tiempo = 12000
     # que sea multiplo de 3 por el seno
-    x_tiempo=np.linspace(0, 3/frec, largo_tiempo)
+    x_tiempo=np.linspace(0, n_periodos/frec, largo_tiempo)
 
     if signal_type == "Coseno":
         signal = amplitud * np.cos(2*np.pi * frec * x_tiempo)
     elif signal_type == "Seno (T*3/2)":
-        x_aux=np.linspace(0, (3/2)*(1/frec), largo_tiempo//3)
+        x_aux=np.linspace(0, (3/2)*(1/frec), largo_tiempo//int(n_periodos))
         sin_aux= amplitud * np.sin(2*np.pi * frec * x_aux)
         signal=np.append(sin_aux, sin_aux)
-        signal=np.append(signal, sin_aux)
+        if n_periodos>2:
+            for n in range(int(n_periodos)-2):
+                signal=np.append(signal, sin_aux)
     else:
         signal=ss.sawtooth(2*np.pi* frec * x_tiempo)
 

@@ -63,6 +63,7 @@ class MainWindow(QMainWindow, Ui_Muestreo):
         periodo = self.doubleSpinBox_T_muestreo.value()
         periodo_unit = self.comboBox_T_muestreo.currentText()
         DC = self.doubleSpinBox_DC.value()
+        n_p=self.doubleSpinBox_n_periodos.value()
 
         if (frec_unit == "KHz"):
             frec *= 1000
@@ -83,7 +84,7 @@ class MainWindow(QMainWindow, Ui_Muestreo):
         Llave_ON = self.checkBox_ON_Llave.isChecked()
         FR_ON = self.checkBox_ON_FR.isChecked()
 
-        MT, MF_x, MF_y = RCV.Recieve(signal, Av, frec, theta, periodo, DC, FAA_ON, SyH_ON, Llave_ON, FR_ON)
+        MT, MF_x, MF_y = RCV.Recieve(signal, Av, frec, theta, periodo, DC, FAA_ON, SyH_ON, Llave_ON, FR_ON, n_p)
         self.Plot(MT,MF_x,MF_y, entrada_Plot, FAA_Plot, SyH_Plot, Llave_Plot, FR_Plot)
         pass
 

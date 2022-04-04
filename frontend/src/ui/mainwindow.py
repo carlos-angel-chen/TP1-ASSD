@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Muestreo(object):
     def setupUi(self, Muestreo):
         Muestreo.setObjectName("Muestreo")
-        Muestreo.resize(976, 583)
+        Muestreo.resize(981, 679)
         Muestreo.setMaximumSize(QtCore.QSize(16777215, 16777215))
         self.centralwidget = QtWidgets.QWidget(Muestreo)
         self.centralwidget.setObjectName("centralwidget")
@@ -245,6 +245,34 @@ class Ui_Muestreo(object):
         self.label_2.setObjectName("label_2")
         self.Layout_f_3.addWidget(self.label_2)
         self.verticalLayout_5.addLayout(self.Layout_f_3)
+        self.Layout_f_6 = QtWidgets.QHBoxLayout()
+        self.Layout_f_6.setObjectName("Layout_f_6")
+        self.label_fp_6 = QtWidgets.QLabel(self.frame_alternativas)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_fp_6.sizePolicy().hasHeightForWidth())
+        self.label_fp_6.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_fp_6.setFont(font)
+        self.label_fp_6.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_fp_6.setObjectName("label_fp_6")
+        self.Layout_f_6.addWidget(self.label_fp_6)
+        self.doubleSpinBox_n_periodos = QtWidgets.QDoubleSpinBox(self.frame_alternativas)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.doubleSpinBox_n_periodos.sizePolicy().hasHeightForWidth())
+        self.doubleSpinBox_n_periodos.setSizePolicy(sizePolicy)
+        self.doubleSpinBox_n_periodos.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.doubleSpinBox_n_periodos.setDecimals(0)
+        self.doubleSpinBox_n_periodos.setMinimum(1.0)
+        self.doubleSpinBox_n_periodos.setMaximum(100.0)
+        self.doubleSpinBox_n_periodos.setProperty("value", 3.0)
+        self.doubleSpinBox_n_periodos.setObjectName("doubleSpinBox_n_periodos")
+        self.Layout_f_6.addWidget(self.doubleSpinBox_n_periodos)
+        self.verticalLayout_5.addLayout(self.Layout_f_6)
         self.verticalLayout_4.addWidget(self.frame_alternativas)
         self.frame_alternativas_2 = QtWidgets.QFrame(self.frame_botones)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
@@ -535,6 +563,7 @@ class Ui_Muestreo(object):
         self.pushButton_actualizar.setFocusPolicy(QtCore.Qt.StrongFocus)
         self.pushButton_actualizar.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.pushButton_actualizar.setStyleSheet("background-color: rgb(172, 172, 172);")
+        self.pushButton_actualizar.setIconSize(QtCore.QSize(20, 20))
         self.pushButton_actualizar.setObjectName("pushButton_actualizar")
         self.Layout_add_2.addWidget(self.pushButton_actualizar)
         self.verticalLayout_4.addLayout(self.Layout_add_2)
@@ -599,7 +628,7 @@ class Ui_Muestreo(object):
         self.textBrowser_2.setHtml(_translate("Muestreo", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Bosch, Dimas</span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Chen, Carlos</span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Dalla Lasta, Pedro</span></p>\n"
@@ -616,6 +645,7 @@ class Ui_Muestreo(object):
         self.comboBox_frec.setItemText(1, _translate("Muestreo", "KHz"))
         self.label_fp_3.setText(_translate("Muestreo", "Θ"))
         self.label_2.setText(_translate("Muestreo", "º"))
+        self.label_fp_6.setText(_translate("Muestreo", "N períodos"))
         self.Title_tipofiltro_4.setText(_translate("Muestreo", "Muestreo"))
         self.label_fp_4.setText(_translate("Muestreo", "Periodo"))
         self.comboBox_T_muestreo.setItemText(0, _translate("Muestreo", "µs"))
