@@ -2,15 +2,17 @@ import numpy as np
 import scipy.signal as ss
 import scipy.fft as fft
 
-def Recieve(signal_type, Amplitud, frec, theta, periodo, DC, FAA_ON, SyH_ON, LLA_ON, FR_ON):
-    largo_tiempo = 1200 #que sea ultiplo de 3 por el seno
+
+def Recieve(signal_type, amplitud, frec, theta, periodo, DC, FAA_ON, SyH_ON, LLA_ON, FR_ON):
+    largo_tiempo = 1200
+    # que sea multiplo de 3 por el seno
     x_tiempo=np.linspace(0, 3/frec, largo_tiempo)
 
     if signal_type == "Coseno":
-        signal = Amplitud * np.cos(2*np.pi * frec * x_tiempo)
+        signal = amplitud * np.cos(2*np.pi * frec * x_tiempo)
     elif signal_type == "Seno (T*3/2)":
         x_aux=np.linspace(0, (3/2)*(1/frec), largo_tiempo//3)
-        sin_aux= Amplitud * np.sin(2*np.pi * frec * x_aux)
+        sin_aux= amplitud * np.sin(2*np.pi * frec * x_aux)
         signal=np.append(sin_aux, sin_aux)
         signal=np.append(signal, sin_aux)
     else:
@@ -38,27 +40,28 @@ def Recieve(signal_type, Amplitud, frec, theta, periodo, DC, FAA_ON, SyH_ON, LLA
 
     dt=x_tiempo[1] - x_tiempo[0]
     frecs_x, signal_spec = FFT(signal, dt)
-    x, FAA_spec = FFT(FAA_out, dt)
-    x, SyH_spec = FFT(SyH_out, dt)
-    x, LLA_spec = FFT(LLA_out, dt)
-    x, FR_spec = FFT(FR_out, dt)
+    FAA_x, FAA_spec = FFT(FAA_out, dt)
+    SyH_x, SyH_spec = FFT(SyH_out, dt)
+    LLA_x, LLA_spec = FFT(LLA_out, dt)
+    FR_x, FR_spec = FFT(FR_out, dt)
 
     MT=np.vstack((x_tiempo, signal, FAA_out, SyH_out, LLA_out, FR_out))
-    MF=np.vstack((frecs_x, signal_spec, FAA_spec, SyH_spec, LLA_spec, FR_spec))
-    # Creo que debería pasarle todas las x de frecuencias
-    return MT, MF
+    MF_x = np.vstack((frecs_x, FAA_x, SyH_x, LLA_x, FR_x))
+    MF_y = np.vstack((signal_spec, FAA_spec, SyH_spec, LLA_spec, FR_spec))
+
+    return MT, MF_x, MF_y
 
 def FAA(input):
-    pass
+    return input
 
 def SyH(input):
-    pass
+    return input
 
 def LLA(input):
-    pass
+    return input
 
 def FR(input):
-    pass
+    return input
 
 def FFT(signal, dt):
     signal_fft = fft.fft(signal)
