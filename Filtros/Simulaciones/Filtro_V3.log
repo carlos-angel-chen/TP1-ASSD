@@ -1,0 +1,44 @@
+Circuit: * C:\Users\carlo\OneDrive\Escritorio\ASSD\TPs\TP1\Filtros\Simulaciones\Filtro_V3.asc
+
+WARNING: Node N006 is floating.
+WARNING: Node NC_03 is floating.
+WARNING: Node NC_05 is floating.
+WARNING: Node NC_07 is floating.
+
+WARNING: Less than two connections to node NC_01.  This node is used by RB_S1.
+WARNING: Less than two connections to node N006.  This node is used by RB_S1.
+WARNING: Less than two connections to node NC_02.  This node is used by RA_S1.
+WARNING: Less than two connections to node NC_03.  This node is used by RA_S1.
+WARNING: Less than two connections to node NC_04.  This node is used by RB_S2.
+WARNING: Less than two connections to node NC_05.  This node is used by RA_S2.
+WARNING: Less than two connections to node NC_06.  This node is used by RB_S3.
+WARNING: Less than two connections to node NC_07.  This node is used by RA_S3.
+Early termination of direct N-R iteration.
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+vernier = 0.5
+vernier = 0.25
+vernier = 0.125
+Gmin = 5.5165
+vernier = 0.0625
+vernier = 0.03125
+vernier = 0.015625
+vernier = 0.0078125
+Gmin = 5.49501
+vernier = 0.00390625
+vernier = 0.00195313
+vernier = 0.000976563
+vernier = 0.000488281
+Gmin = 5.50104
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+Source Step = 93.9394%
+Source stepping succeeded in finding the operating point.
+
+Fatal Error: Analysis Failed: Matrix is singular

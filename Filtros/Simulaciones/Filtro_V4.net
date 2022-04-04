@@ -1,0 +1,35 @@
+* C:\Users\carlo\OneDrive\Escritorio\ASSD\TPs\TP1\Filtros\Simulaciones\Filtro_V4.asc
+XU1 N006 Stage_1 Vcc+ Vcc- Stage_1 TL082
+R1 N001 Vin {R1_S1}
+C2_S1 N006 0 {C2_S1}
+R2 N006 N001 {R2_S1}
+V1 Vcc+ 0 5
+V2 0 Vcc- 5
+V3 Vin 0 SINE(0 1 3k 0 0)
+XU2 N005 Stage_2 Vcc+ Vcc- Stage_2 TL082
+R3 N002 Stage_1 {R1_S2}
+C2_S2 N005 0 {C2_S2}
+R4 N005 N002 {R2_S2}
+XU3 N004 Vout Vcc+ Vcc- Vout TL082
+R5 N003 Stage_2 {R1_S3}
+C2_S3 N004 0 {C2_S3}
+R6 N004 N003 {R2_S3}
+C1_S1 Stage_1 N001 {C1_S1}
+C1_S2 Stage_2 N002 {C1_S2}
+C1_S3 Vout N003 {C1_S3}
+.param R1_S1 75k
+.param R2_S1 33k
+.param C2_S1 100p
+.param C1_S1 68p
+.param R1_S2 15k
+.param R2_S2 4.7k
+.param C1_S2 0.001u
+.param C2_S2 220p
+.param R1_S3 39k
+.param R2_S3 12k
+.param C1_S3 0.001u
+.param C2_S3 33p
+.tran 0.5m
+.lib TL082.cir
+.backanno
+.end
