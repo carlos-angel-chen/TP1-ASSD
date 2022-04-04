@@ -1,7 +1,10 @@
 import numpy as np
 import scipy.signal as ss
 import scipy.fft as fft
-
+from backend.FAA import FAA
+from backend.LLA import LLA
+from backend.SyH import SyH
+from backend.FR import FR
 
 def Recieve(signal_type, amplitud, frec, theta, periodo, DC, FAA_ON, SyH_ON, LLA_ON, FR_ON, n_periodos):
     largo_tiempo = 12000
@@ -36,7 +39,7 @@ def Recieve(signal_type, amplitud, frec, theta, periodo, DC, FAA_ON, SyH_ON, LLA
         LLA_out=np.copy(SyH_out)
 
     if FR_ON:
-        FR_out=FAA(LLA_out)
+        FR_out=FR(LLA_out)
     else:
         FR_out=np.copy(LLA_out)
 
@@ -53,17 +56,13 @@ def Recieve(signal_type, amplitud, frec, theta, periodo, DC, FAA_ON, SyH_ON, LLA
 
     return MT, MF_x, MF_y
 
-def FAA(input):
-    return input
 
-def SyH(input):
-    return input
 
-def LLA(input):
-    return input
 
-def FR(input):
-    return input
+
+
+
+
 
 def FFT(signal, dt):
     signal_fft = fft.fft(signal)
