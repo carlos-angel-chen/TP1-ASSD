@@ -2,11 +2,11 @@ import numpy as np
 import scipy.signal as ss
 import scipy.fft as fft
 from backend.FAA import FAA
-from backend.LLA import LLA
+from backend.analogSwitch import analogSwitch
 from backend.SyH import SyH
 from backend.FR import FR
 
-def Recieve(signal_type, amplitud, frec, theta, periodo, DC, FAA_ON, SyH_ON, LLA_ON, FR_ON, n_periodos):
+def Recieve(signal_type, amplitud, frec, theta, periodo, DC, FAA_ON, SyH_ON, analogSwitch_ON, FR_ON, n_periodos):
     largo_tiempo = 12000
     # que sea multiplo de 3 por el seno
     x_tiempo=np.linspace(0, n_periodos/frec, largo_tiempo)
@@ -35,26 +35,26 @@ def Recieve(signal_type, amplitud, frec, theta, periodo, DC, FAA_ON, SyH_ON, LLA
     else:
         SyH_out=np.copy(FAA_out)
 
-    if LLA_ON:
-        LLA_out=LLA(SyH_out)
+    if analogSwitch_ON:
+        analogSwitch_out=analogSwitch(SyH_out)
     else:
-        LLA_out=np.copy(SyH_out)
+        analogSwitch_out=np.copy(SyH_out)
 
     if FR_ON:
-        FR_out=FR(LLA_out)
+        FR_out=FR(analogSwitch_out)
     else:
-        FR_out=np.copy(LLA_out)
+        FR_out=np.copy(analogSwitch_out)
 
     dt=x_tiempo[1] - x_tiempo[0]
     frecs_x, signal_spec = FFT(signal, dt)
     FAA_x, FAA_spec = FFT(FAA_out, dt)
     SyH_x, SyH_spec = FFT(SyH_out, dt)
-    LLA_x, LLA_spec = FFT(LLA_out, dt)
+    analogSwitch_x, analogSwitch_spec = FFT(analogSwitch_out, dt)
     FR_x, FR_spec = FFT(FR_out, dt)
 
-    MT=np.vstack((x_tiempo, signal, FAA_out, SyH_out, LLA_out, FR_out))
-    MF_x = np.vstack((frecs_x, FAA_x, SyH_x, LLA_x, FR_x))
-    MF_y = np.vstack((signal_spec, FAA_spec, SyH_spec, LLA_spec, FR_spec))
+    MT=np.vstack((x_tiempo, signal, FAA_out, SyH_out, analogSwitch_out, FR_out))
+    MF_x = np.vstack((frecs_x, FAA_x, SyH_x, analogSwitch_x, FR_x))
+    MF_y = np.vstack((signal_spec, FAA_spec, SyH_spec, analogSwitch_spec, FR_spec))
 
     return MT, MF_x, MF_y
 
