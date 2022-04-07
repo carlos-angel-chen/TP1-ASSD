@@ -3,7 +3,9 @@ from scipy import signal
 import matplotlib.pyplot as plt
 
 #El propósito del filtro antialiasing es eliminar toda presencia, antes de hacer el muestreo, de las frecuencias superiores a fs/2, siendo fs la frecuencia muestreo.
-def FAA(data, fc, fs, order=5):
+def FAA(data, fs):
+    order=5
+    fc = 40e3
     num, den = signal.butter(order, fc, fs=fs, btype='low', analog=False)
     y = signal.lfilter(num, den, data)
     return y
