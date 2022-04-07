@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 def FAA(data, fs):
     order=5
     fc = 40e3
-    num, den = signal.butter(order, fc, fs=fs, btype='low', analog=False)
+    num, den = signal.butter(order, fc, fs=fs, btype='lowpass', analog=False)
     y = signal.lfilter(num, den, data)
     return y
 
