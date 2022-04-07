@@ -11,6 +11,8 @@ def Recieve(signal_type, amplitud, frec, theta, periodo, DC, FAA_ON, SyH_ON, ana
     # que sea multiplo de 3 por el seno
     x_tiempo=np.linspace(0, n_periodos/frec, largo_tiempo)
 
+    sq_signal=ss.square(2*np.pi * 1/periodo * x_tiempo, duty=DC/100)
+
     if signal_type == "Coseno":
         signal = amplitud * np.cos(2*np.pi * frec * x_tiempo + (theta*(np.pi/180)))
     elif signal_type == "Seno (T*3/2)":
@@ -36,7 +38,7 @@ def Recieve(signal_type, amplitud, frec, theta, periodo, DC, FAA_ON, SyH_ON, ana
         SyH_out=np.copy(FAA_out)
 
     if analogSwitch_ON:
-        analogSwitch_out=analogSwitch(SyH_out)
+        analogSwitch_out=analogSwitch(SyH_out, sq_signal)
     else:
         analogSwitch_out=np.copy(SyH_out)
 

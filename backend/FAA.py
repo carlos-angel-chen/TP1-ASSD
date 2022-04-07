@@ -12,7 +12,7 @@ def FAA(data, fs):
 
 
 
-
+"""
 #---------------------------#
 #       TEST BENCH          #
 #---------------------------#
@@ -43,3 +43,4 @@ plt.legend()
 
 plt.subplots_adjust(hspace=0.35)
 plt.show()
+"""
