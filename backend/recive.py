@@ -43,7 +43,7 @@ def Recieve(signal_type, amplitud, frec, theta, periodo, DC, FAA_ON, SyH_ON, ana
         analogSwitch_out=np.copy(SyH_out)
 
     if FR_ON:
-        FR_out=FR(analogSwitch_out)
+        FR_out=FAA(analogSwitch_out, 1/periodo)
     else:
         FR_out=np.copy(analogSwitch_out)
 
