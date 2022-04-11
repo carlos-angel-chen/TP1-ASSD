@@ -27,11 +27,9 @@ def FAA(data, fs):
 
 # Filter requirements.
 fs = 100e3       # sample rate, Hz
-
 # Demonstrate the use of the filter.
 # First make some data to be filtered.
-T = 5e-3        # seconds
-n = int(T * fs) # total number of samples 
+T = 2e-3        # seconds
 t = np.linspace(0, T, 1000)
 f= 100e3
 # "Noisy" data.  We want to recover the 1.2 Hz signal from this.
