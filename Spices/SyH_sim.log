@@ -1,0 +1,23 @@
+Circuit: * C:\Users\carlo\OneDrive\Escritorio\ASSD\TPs\TP1\Spices\SyH_sim.asc
+
+Limiting rise time of source v§pulso to 1e-006
+Limiting fall time of source v§pulso to 1e-006
+Direct Newton iteration for .op point succeeded.
+
+Date: Tue Apr 12 02:04:49 2022
+Total elapsed time: 0.562 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 101499
+traniter = 101463
+tranpoints = 47232
+accept = 46569
+rejected = 663
+matrix size = 45
+fillins = 8
+solver = Normal
+Matrix Compiler1: 2.03 KB object code size  0.5/0.2/[0.1]
+Matrix Compiler2: off  [0.2]/0.4/0.4
+
