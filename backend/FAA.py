@@ -13,10 +13,6 @@ def FAA(data, fs):
     return y
 
 
-# def filter_test():
-#     num = [3.13e43]
-#     den = [1, 1.4e6, 9.82e11, 4.47e17, 1.44e23, 3.34e28, 5.5e33, 5.86e38, 3.13e43]
-#     sys = signal.TransferFunction(num, den)
 
 """
 #---------------------------#
@@ -26,20 +22,22 @@ def FAA(data, fs):
 # https://stackoverflow.com/questions/25191620/creating-lowpass-filter-in-scipy-understanding-methods-and-units
 
 # Filter requirements.
-fs = 100e3       # sample rate, Hz
+order = 6
+fs = 30.0       # sample rate, Hz
+cutoff = 3.667  # desired cutoff frequency of the filter, Hz
+
 # Demonstrate the use of the filter.
 # First make some data to be filtered.
-T = 2e-3        # seconds
-t = np.linspace(0, T, 1000)
-f= 100e3
+T = 5.0         # seconds
+n = int(T * fs) # total number of samples
+t = np.linspace(0, T, n, endpoint=False)
 # "Noisy" data.  We want to recover the 1.2 Hz signal from this.
-#data = np.sin(1.2*2*np.pi*t) + 1.5*np.cos(9*2*np.pi*t) + 0.5*np.sin(12.0*2*np.pi*t)
-data2 = np.cos(2*np.pi*f*t)
+data = np.sin(1.2*2*np.pi*t) + 1.5*np.cos(9*2*np.pi*t) + 0.5*np.sin(12.0*2*np.pi*t)
 
 # Filter the data, and plot both the original and filtered signals.
-y = FAA(data2, fs)
+y = FAA(data, cutoff, fs, order)
 
-plt.plot(t, data2, 'b-', label='data')
+plt.plot(t, data, 'b-', label='data')
 plt.plot(t, y, 'g-', linewidth=2, label='filtered data')
 plt.xlabel('Time [sec]')
 plt.grid()
