@@ -1,6 +1,7 @@
 from scipy import signal 
 import matplotlib.pyplot as plt 
-import numpy as np 
+import numpy as np
+import scipy.fft as fft
   
 t = np.linspace(0, 1e-3, 10000, endpoint=True) 
 f = 15e3
@@ -10,6 +11,8 @@ file = open("AM.txt", "w")
 for i in range(len(t)):
     file.write(str(t[i]) + "\t" + str(y[i]) + "\n")
 file.close()
+
+
 
 # plt.plot(t, y)   
 # plt.xlabel('Time') 

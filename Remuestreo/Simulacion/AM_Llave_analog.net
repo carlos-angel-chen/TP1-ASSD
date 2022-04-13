@@ -1,0 +1,12 @@
+* C:\Users\carlo\OneDrive\Escritorio\ASSD\TPs\TP1\Remuestreo\Simulacion\AM_Llave_analog.asc
+XU1 Input Out Control VDD Vss 4066
+V§Entrada Input 0 PWL file=C:\Users\carlo\OneDrive\Escritorio\ASSD\TPs\TP1\Remuestreo\AM.txt
+V§Pulso Control 0 PULSE(-12 12 0 0 0 10u 20u)
+V1 VDD 0 12
+V2 0 Vss 12
+R1 Out 0 10k
+C1 Out 0 18p
+.tran 0 1m 0 0.001
+.lib SwitchAna.lib
+.backanno
+.end
